@@ -142,7 +142,7 @@ if [ -f ${NEXTIONUSERS} ]; then
 		curl --fail -o ${NEXTIONUSERS} -s http://barrandovhblink.jednoduse.cz/dmrcz/nextionUsers.csv --user-agent "Pi-Star_${pistarCurVersion}"
 	fi
 else
-	curl -sSL http://barrandovhblink.jednoduse.cz/dmrcz/nextionUsers.csv.gz --user-agent "Pi-Star_${pistarCurVersion}" | gunzip -c > ${NEXTIONUSERS}
+	curl --fail -o ${NEXTIONUSERS} -s http://barrandovhblink.jednoduse.cz/dmrcz/nextionUsers.csv --user-agent "Pi-Star_${pistarCurVersion}"
 fi
 
 # If there is a DMR Over-ride file, add it's contents to DMR_Hosts.txt
