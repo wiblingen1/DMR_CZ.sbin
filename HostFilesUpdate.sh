@@ -114,7 +114,7 @@ else
   curl --fail -o ${DPlusHOSTS} -s http://www.pistar.uk/downloads/DPlus_Hosts.txt --user-agent "Pi-Star_${pistarCurVersion}"
   curl --fail -o ${DExtraHOSTS} -s http://www.pistar.uk/downloads/DExtra_Hosts.txt --user-agent "Pi-Star_${pistarCurVersion}"
 fi
-curl -sSL http://barrandovhblink.jednoduse.cz/dmrcz/DMRIds.dat.gz --user-agent "Pi-Star_${pistarCurVersion}" | gunzip -c > ${DMRIDFILE}
+curl --fail -o ${DMRIDFILE} -s http://barrandovhblink.jednoduse.cz/dmrcz/DMRIds.dat --user-agent "Pi-Star_${pistarCurVersion}"
 curl --fail -o ${P25HOSTS} -s http://www.pistar.uk/downloads/P25_Hosts.txt --user-agent "Pi-Star_${pistarCurVersion}"
 curl --fail -o ${M17HOSTS} -s http://www.pistar.uk/downloads/M17_Hosts.txt --user-agent "Pi-Star_${pistarCurVersion}"
 curl --fail -o ${YSFHOSTS} -s http://www.pistar.uk/downloads/YSF_Hosts.txt --user-agent "Pi-Star_${pistarCurVersion}"
@@ -139,7 +139,7 @@ fi
 # Download Nextion Users
 if [ -f ${NEXTIONUSERS} ]; then
 	if [[ $(find "${NEXTIONUSERS}" -mtime +7) ]]; then
-		curl -sSL http://barrandovhblink.jednoduse.cz/dmrcz/nextionUsers.csv.gz --user-agent "Pi-Star_${pistarCurVersion}" | gunzip -c > ${NEXTIONUSERS}
+		curl --fail -o ${NEXTIONUSERS} -s http://barrandovhblink.jednoduse.cz/dmrcz/nextionUsers.csv --user-agent "Pi-Star_${pistarCurVersion}"
 	fi
 else
 	curl -sSL http://barrandovhblink.jednoduse.cz/dmrcz/nextionUsers.csv.gz --user-agent "Pi-Star_${pistarCurVersion}" | gunzip -c > ${NEXTIONUSERS}
